@@ -1,0 +1,30 @@
+﻿
+
+.title{
+    font-size:25px;
+    color:black;
+    padding-bottom:50px
+}
+
+.label {
+    font-size: 14px;
+    color: black;
+}
+
+.buttonSet{
+    margin-top:50px
+}
+
+.form-control {
+    height: calc(1.5em + .25rem + 1px);
+    border-radius: 3px 4px;
+    padding: .3rem .75rem;
+}
+
+.fontSmall{
+    font-size:medium
+}
+
+.form-control{
+    margin-right:2px;
+}

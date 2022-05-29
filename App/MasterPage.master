@@ -1,0 +1,127 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<%@ Register Src="~/Wuc/wucMessageBox.ascx" TagName="wucMessageBox" TagPrefix="uc1" %>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+
+    <title>CMSystem</title>
+    <meta charset="utf-8" content="" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+
+    <!-- Bootstrap Core CSS -->
+    <link href="AssetMaster/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="AssetMaster/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet"/>
+    <link href="AssetMaster/vendors/nprogress/nprogress.css" rel="stylesheet"/>
+    <link href="AssetMaster/vendors/iCheck/skins/flat/green.css" rel="stylesheet"/>
+    <link href="AssetMaster/vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet"/>
+    <link href="AssetMaster/vendors/jqvmap/dist/jqvmap.min.css" rel="stylesheet"/>
+    <link href="AssetMaster/vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet"/>
+    <link href="AssetMaster/build/css/custom.min.css" rel="stylesheet"/>
+    <link href="AssetMaster/Styles.css" rel="stylesheet"/>
+
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body class="nav-md">
+    <form id="form1" runat="server">
+    <asp:ScriptManager ID="ScriptManager1" runat="server" />
+    <div class="container body">
+      <div class="main_container">
+        <div class="col-md-3 left_col">
+          <div class="left_col scroll-view">
+            <div class="navbar nav_title" style="border: 0;">
+              <a href="Default.aspx" class="site_title"><i class="fa fa-renren"></i> <span>CMSystem</span></a>
+            </div>
+            <div class="clearfix"></div>
+            <div class="profile clearfix">
+              <div class="profile_pic">
+                <img src="../images/img.jpg" alt="..." class="img-circle profile_img">
+              </div>
+              <div class="profile_info">
+                  <asp:Label runat="server" ID="lblUserName"></asp:Label>
+              </div>
+            </div>
+            <br />
+            <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+              <div class="menu_section">
+                <h3><asp:Label runat="server" ID="lblDept"></asp:Label></h3>
+                <ul class="nav side-menu">
+                  <li><a><i class="fa fa-home"></i> Transaction <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="../Transaction/PurchaseRequisitionList.aspx">Purchase Requisition</a></li>
+                      <li><a href="../Transaction/PurchaseOrder.aspx">Purchase Order</a></li>
+                      <li><a href="../Transaction/InboundDelivery.aspx">Inbound Delivery</a></li>
+                      <li><a href="../Transaction/RentalQuotation.aspx?">Rental Quotation</a></li>
+                      <li><a href="../Transaction/RentalOrder.aspx?">Rental Order</a></li>
+                      <li><a href="../Transaction/BarangKeluarList.aspx">Outbound Delivery</a></li>
+                      <li><a href="../Transaction/PurchaseInvoice.aspx">Purchase invoice</a></li>
+                      <li><a href="../Transaction/PurchasePaymentList.aspx">Purchase Payment</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="top_nav">
+          <div class="nav_menu">
+              <div class="nav toggle">
+                <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+              </div>
+              <nav class="nav navbar-nav">
+              <ul class=" navbar-right">
+                <li class="nav-item dropdown open" style="padding-left: 15px;">
+                  <a href="javascript:;" class="user-profile dropdown-toggle" aria-haspopup="true" id="navbarDropdown" data-toggle="dropdown" aria-expanded="false">
+                    <img src="../images/img.jpg" alt=""/><asp:Label runat="server" ID="lblUser"></asp:Label>
+                  </a>
+                  <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item"  href="../login.aspx"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
+                  </div>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+        <div class="right_col" role="main">
+            <asp:ContentPlaceHolder id="Body" runat="server">
+
+                
+            </asp:ContentPlaceHolder>
+            <uc1:wucMessageBox ID="wucMessageBox1" runat="server" />
+        </div>
+      </div>
+    </div>
+    <script src="../AssetMaster/vendors/jquery/dist/jquery.min.js" type="text/javascript"></script>
+    <script src="../AssetMaster/vendors/bootstrap/dist/js/bootstrap.bundle.min.js" type="text/javascript"></script>
+    <script src="../AssetMaster/vendors/fastclick/lib/fastclick.js" type="text/javascript"></script>
+    <script src="../AssetMaster/vendors/nprogress/nprogress.js" type="text/javascript"></script>
+    <script src="../AssetMaster/vendors/Chart.js/dist/Chart.min.js" type="text/javascript"></script>
+    <script src="../AssetMaster/vendors/gauge.js/dist/gauge.min.js" type="text/javascript"></script>
+    <script src="../AssetMaster/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js" type="text/javascript"></script>
+    <script src="../AssetMaster/vendors/iCheck/icheck.min.js" type="text/javascript"></script>
+    <script src="../AssetMaster/vendors/skycons/skycons.js" type="text/javascript"></script>
+    <script src="../AssetMaster/vendors/Flot/jquery.flot.js" type="text/javascript"></script>
+    <script src="../AssetMaster/vendors/Flot/jquery.flot.pie.js" type="text/javascript"></script>
+    <script src="../AssetMaster/vendors/Flot/jquery.flot.time.js" type="text/javascript"></script>
+    <script src="../AssetMaster/vendors/Flot/jquery.flot.stack.js" type="text/javascript"></script>
+    <script src="../AssetMaster/vendors/Flot/jquery.flot.resize.js" type="text/javascript"></script>
+    <script src="../AssetMaster/vendors/flot.orderbars/js/jquery.flot.orderBars.js" type="text/javascript"></script>
+    <script src="../AssetMaster/vendors/flot-spline/js/jquery.flot.spline.min.js" type="text/javascript"></script>
+    <script src="../AssetMaster/vendors/flot.curvedlines/curvedLines.js" type="text/javascript"></script>
+    <script src="../AssetMaster/vendors/DateJS/build/date.js" type="text/javascript"></script>
+    <script src="../AssetMaster/vendors/jqvmap/dist/jquery.vmap.js" type="text/javascript"></script>
+    <script src="../AssetMaster/vendors/jqvmap/dist/maps/jquery.vmap.world.js" type="text/javascript"></script>
+    <script src="../AssetMaster/vendors/jqvmap/examples/js/jquery.vmap.sampledata.js" type="text/javascript"></script>
+    <script src="../AssetMaster/vendors/moment/min/moment.min.js" type="text/javascript"></script>
+    <script src="../AssetMaster/vendors/bootstrap-daterangepicker/daterangepicker.js" type="text/javascript"></script>
+    <script src="../AssetMaster/build/js/custom.min.js" type="text/javascript"></script>
+	
+    </form>
+</body>
+</html>
