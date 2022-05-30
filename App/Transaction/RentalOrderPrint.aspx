@@ -1,10 +1,10 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="PurchaseOrderPrint.aspx.cs" Inherits="Transaction_PurchaseOrderPrint" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="RentalOrderPrint.aspx.cs" Inherits="Transaction_RentalOrderPrint" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>eRental || Purchase Order</title>
+    <title>eRental || Rental Order</title>
     <link href="../AssetMaster/print.css" rel="stylesheet" type="text/css" />
 </head>
 <body onclick="print()">

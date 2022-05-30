@@ -257,7 +257,7 @@ public partial class Transaction_RentalOrder : System.Web.UI.Page
     protected void imgPrintCustomer_Click(object sender, EventArgs e)
     {
         try {
-            GridViewRow gridRow = ((sender as ImageButton).Parent.Parent as GridViewRow);
+            GridViewRow gridRow = ((sender as LinkButton).Parent.Parent as GridViewRow);
             Label lblTransNo = (Label)gridRow.FindControl("lblTransNo");
 
             ScriptManager.RegisterStartupScript(this, typeof(string), "OPEN_WINDOW", "window.open('RentalOrderPrint.aspx?transNo=" + lblTransNo.Text + "&mode=customer', null, 'width=750px,fullscreen=no,status=no,toolbar=no,menubar=no,location=no,scrollbars=yes' );", true);

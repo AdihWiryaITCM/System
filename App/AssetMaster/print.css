@@ -1,0 +1,16 @@
+﻿th {
+	font-size: 10px;
+	font-family: verdana, tahoma, sans-serif;
+	border-bottom: solid 1px black;
+	font-weight: normal;
+}
+
+td {
+    font-size: 10px;
+    font-family: verdana, tahoma, sans-serif;
+}
+
+.T1-B0-L0-R0
+{
+	border-top:solid 1px black;
+}

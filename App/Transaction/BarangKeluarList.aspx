@@ -135,12 +135,6 @@
                                             <asp:Label ID="lblDelete" runat="server" Text="--" />
                                         </ItemTemplate>
                                     </asp:TemplateField>
-                                    <asp:TemplateField>
-                                        <ItemStyle HorizontalAlign="Center" Width="30px" VerticalAlign="Top"/>
-                                        <ItemTemplate>
-                                            <asp:LinkButton ID="lbPrint" runat="server"><i class="fa fa-print" style="font-size:17px"></i></asp:LinkButton>
-                                        </ItemTemplate>
-                                    </asp:TemplateField>
                                 </Columns>
                             </asp:GridView>
                         </ContentTemplate>

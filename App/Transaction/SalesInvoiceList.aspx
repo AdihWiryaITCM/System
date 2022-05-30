@@ -129,7 +129,7 @@
                                 <asp:TemplateField>
                                     <ItemStyle HorizontalAlign="Center" Width="30px" VerticalAlign="Top" />
                                     <ItemTemplate>
-                                         <asp:LinkButton ID="lbPrint" runat="server"><i class="fa fa-print" style="font-size:17px"></i></asp:LinkButton>
+                                         <asp:LinkButton ID="lbPrint" runat="server" OnClick="imgPrint_Click"><i class="fa fa-print" style="font-size:17px"></i></asp:LinkButton>
                                    </ItemTemplate>
                                 </asp:TemplateField>
                             </Columns>
