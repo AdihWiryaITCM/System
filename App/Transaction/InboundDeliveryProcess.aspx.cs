@@ -70,14 +70,6 @@ public partial class Transaction_InboundDeliveryProcess : System.Web.UI.Page
                     sql.Append("        GROUP BY trans_no ");
                     sql.Append("    ) AS ta ON po.trans_no = ta.trans_no ");
                     sql.Append(") AS po ON a.reff_order_no = po.trans_no ");
-                    sql.Append("--LEFT JOIN( ");
-                    sql.Append("--SELECT od.trans_no, CONVERT(VARCHAR(11), od.posted_date, 106) AS posted_date ");
-                    sql.Append("--  FROM outbound_delivery od WITH(READPAST) ");
-                    sql.Append("--) AS od ON a.reff_order_no = od.trans_no ");
-                    sql.Append("--LEFT JOIN( ");
-                    sql.Append("--SELECT rro.trans_no, CONVERT(VARCHAR(11), rro.posted_date, 106) AS posted_date ");
-                    sql.Append("--  FROM rental_return_order rro WITH(READPAST) ");
-                    sql.Append("--) AS rro ON a.reff_order_no = rro.trans_no ");
                     sql.Append("WHERE 1 = 1 ");
                     sql.Append("AND a.trans_no = '" + tbTransNo.Text + "' ");
 
@@ -110,6 +102,7 @@ public partial class Transaction_InboundDeliveryProcess : System.Web.UI.Page
                                     txtDocReceivedate.Text = dr["document_receive_date"].ToString();
                                     ibSearchMovementType.Visible = false;
                                     tbNote.Text = dr["note"].ToString();
+                                    lStatus.Text = dr["status"].ToString();
                                     if (dr["status"].ToString() == "False")
                                     {
                                         lStatus.Text = "OPEN";
@@ -611,8 +604,6 @@ public partial class Transaction_InboundDeliveryProcess : System.Web.UI.Page
         tbShipTo.Text = "";
         lbShipTo.Text = "";
         tbNote.Text = "";
-        tbMovementType.Text = "";
-        lbMovementType.Text = "";
         txtRealReceiveDate.Text = "";
         tbMovementType.ReadOnly = false;
         ibSearchMovementType.Visible = true;

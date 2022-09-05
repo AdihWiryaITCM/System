@@ -409,15 +409,15 @@ public partial class Transaction_PurchasePayment : Page
     {
         MasterPage master = (MasterPage)this.Master;
 
-        if (lblStatus.Text == "")
-        {
-            master.messageBox("Save Data First!");
-        }
-        else
-        {
+        //if (lblStatus.Text == "")
+        //{
+        //    master.messageBox("Save Data First!");
+        //}
+        //else
+        //{
             Session["ConfirmMode"] = "Post";
             showConfirmBox("Are you sure post this data?");
-        }
+        //}
     }
 
     protected void btnCancel_Click(object sender, EventArgs e)

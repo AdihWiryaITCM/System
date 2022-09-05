@@ -67,8 +67,8 @@ public partial class Transaction_PurchasePaymentList : Page
     {
         MasterPage master = (MasterPage)this.Master;
         sql.Length = 0;
-        sql.Append("DELETE FROM [purchase_payment] WHERE trans_no = '" + Session["InvoiceConfirmationTransNo"].ToString() + "' ");
-        sql.Append("DELETE FROM [purchase_payment_detail] WHERE trans_no = '" + Session["InvoiceConfirmationTransNo"].ToString() + "' ");
+        sql.Append("DELETE FROM [purchase_payment_detail] WHERE trans_no = '" + Session["PVHeaderPVNo"].ToString() + "' ");
+        sql.Append("DELETE FROM [purchase_payment] WHERE trans_no = '" + Session["PVHeaderPVNo"].ToString() + "' ");
 
         cAdih.executeNonQuery(sql.ToString(), cAdih.getConnStr("Connection").ToString());
         master.messageBox("Data has been deleted");
@@ -260,5 +260,39 @@ public partial class Transaction_PurchasePaymentList : Page
         grid.PageIndex = int.Parse(ddlPageOf.SelectedValue) - 1;
         BindData();
         loadRecords();
+    }
+
+    protected void grid_RowDataBound(object sender, GridViewRowEventArgs e)
+    {
+        try
+        {
+            GridViewRow Row = e.Row;
+
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                Label lblStatus = (Label)Row.FindControl("lblStatus");
+                LinkButton lbEdit = (LinkButton)Row.FindControl("lbEdit");
+                Label lblEdit = (Label)Row.FindControl("lblEdit");
+                LinkButton lbDelete = (LinkButton)Row.FindControl("lbDelete");
+                Label lblDelete = (Label)Row.FindControl("lblDelete");
+
+                if (lblStatus.Text == "HOLD")
+                {
+                    lbDelete.Visible = true;
+                    lblDelete.Visible = false;
+                }
+                else
+                {
+                    lbDelete.Visible = false;
+                    lblDelete.Visible = true;
+                }
+            }
+            upGrid.Update();
+        }
+        catch (Exception ex)
+        {
+            MasterPage master = (MasterPage)this.Master;
+            master.messageBox(ex.Message);
+        }
     }
 }

@@ -270,8 +270,8 @@ public partial class Transaction_InboundDelivery : System.Web.UI.Page
                 if (Session["InboundDeliveryMode"].ToString() == "delete")
                 {
                     sql.Length = 0;
-                    sql.Append("DELETE FROM inbound_delivery WHERE trans_no = '" + Session["InboundDeliveryTransNo"].ToString() + "' ");
                     sql.Append("DELETE FROM inbound_delivery_detail WHERE trans_no = '" + Session["InboundDeliveryTransNo"].ToString() + "' ");
+                    sql.Append("DELETE FROM inbound_delivery WHERE trans_no = '" + Session["InboundDeliveryTransNo"].ToString() + "' ");
 
                     cAdih.executeNonQuery(sql.ToString(), cAdih.getConnStr("Connection").ToString());
                     master.messageBox("Data has been deleted");

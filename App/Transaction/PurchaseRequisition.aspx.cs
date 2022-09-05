@@ -384,7 +384,7 @@ public partial class Transaction_PermintaanPembelianBarang : System.Web.UI.Page
 
     private void LoadStatus()
     {
-        if (lblStatus.Text == "1")
+        if (lblStatus.Text == "1" || lblStatus.Text == "POSTED")
         {
             upDetail.Visible = false;
             btnPosting.Visible = false;

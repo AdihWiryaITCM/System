@@ -251,8 +251,8 @@ public partial class Transaction_PermintaanPembelianBarangList : System.Web.UI.P
                 if (Session["ConfirmMode"].ToString() == "delete")
                 {
                     sql.Length = 0;
-                    sql.Append("DELETE FROM purchase_requisition WHERE trans_no = '" + Session["TransNo"].ToString() + "' ");
                     sql.Append("DELETE FROM purchase_requisition_detail WHERE trans_no = '" + Session["TransNo"].ToString() + "' ");
+                    sql.Append("DELETE FROM purchase_requisition WHERE trans_no = '" + Session["TransNo"].ToString() + "' ");
 
                     cAdih.executeNonQuery(sql.ToString(), cAdih.getConnStr("Connection").ToString());
                     master.messageBox("Data has been deleted");

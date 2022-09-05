@@ -44,8 +44,8 @@ public partial class Transaction_BarangKeluar : System.Web.UI.Page
                 sql.Length = 0;
                 sql.Append("SELECT a.trans_no, a.trans_date, a.reff, a.reff_order_no, ");
                 sql.Append("(CASE");
-                sql.Append("    WHEN a.reff = 'STOCK TRANSPORT ORDER' ");
-                sql.Append("    THEN CONVERT(VARCHAR, sto.created_date, 106) ");
+                //sql.Append("    WHEN a.reff = 'STOCK TRANSPORT ORDER' ");
+                //sql.Append("    THEN CONVERT(VARCHAR, sto.created_date, 106) ");
                 //sql.Append("    WHEN a.reff = 'RENTAL RETURN ORDER' ");
                 //sql.Append("    THEN CONVERT(VARCHAR, rro.posted_date, 106) ");
                 sql.Append("    WHEN a.reff = 'RENTAL ORDER' ");
@@ -60,7 +60,7 @@ public partial class Transaction_BarangKeluar : System.Web.UI.Page
                 sql.Append("LEFT JOIN site_wh b WITH(READPAST) ON a.from_warehouse = b.wh_id ");
                 sql.Append("LEFT JOIN customer h WITH(READPAST) ON a.ship_to = h.customer_no ");
                 sql.Append("LEFT JOIN movement_type j ON a.movement_type = j.id ");
-                sql.Append("LEFT JOIN stock_transport_order sto ON a.reff_order_no = sto.trans_no AND sto.status = '1' ");
+                //sql.Append("LEFT JOIN stock_transport_order sto ON a.reff_order_no = sto.trans_no AND sto.status = '1' ");
                 sql.Append("LEFT JOIN rental_order ro ON a.reff_order_no = ro.trans_no AND ro.status = '1' ");
                 //sql.Append("LEFT JOIN rental_return_order rro ON a.reff_order_no = rro.trans_no AND rro.status = '1' ");
                 sql.Append("WHERE 1 = 1 ");
@@ -605,8 +605,6 @@ public partial class Transaction_BarangKeluar : System.Web.UI.Page
         lbShipTo.Text = "";
         tbNote.Text = "";
 
-        tbMovementType.Text = "";
-        lbMovementType.Text = "";
         tbMovementType.ReadOnly = false;
         ibSearchMovementType.Visible = true;
         upHeader.Update();

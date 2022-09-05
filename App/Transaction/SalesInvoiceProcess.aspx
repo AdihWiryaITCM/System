@@ -404,7 +404,7 @@
             </div>
         </div>
     </asp:Panel>
-    <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+    <asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="Conditional">
         <ContentTemplate>
             <div>
                 <div class="row text-center">

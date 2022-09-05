@@ -288,7 +288,7 @@
                                         </ItemTemplate>
                                         <ItemStyle HorizontalAlign="Right" VerticalAlign="Top" Width="" />
                                     </asp:TemplateField>
-                                     <asp:TemplateField HeaderText="Vendor Name" HeaderStyle-CssClass="text-center">
+                                     <asp:TemplateField HeaderText="Vendor Name" Visible="false" HeaderStyle-CssClass="text-center">
                                         <HeaderStyle HorizontalAlign="Center" />
                                         <ItemTemplate>
                                             <asp:Label ID="lPoVendorName" runat="server" Text='<%# Bind("po_vendor_name") %>'/>

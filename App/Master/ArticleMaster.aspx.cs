@@ -363,7 +363,7 @@ public partial class Master_ArticleMaster : Page
                 trans = conn.BeginTransaction();
               
                 sql.Length = 0;
-                sql.Append("SELECT RIGHT('00000000' + CAST(ISNULL(MAX(CAST(article_number AS INT)), 0) + 1 AS VARCHAR), 8) AS new_article_no ");
+                sql.Append("SELECT RIGHT('00000000' + CAST(ISNULL(MAX(CAST(article_no AS INT)), 0) + 1 AS VARCHAR), 8) AS new_article_no ");
                 sql.Append("FROM article ");
 
                 using (cmd = new SqlCommand(sql.ToString(), conn, trans))
@@ -571,16 +571,13 @@ public partial class Master_ArticleMaster : Page
 
     protected void lbAddNew_Click(object sender, EventArgs e)
     {
-        Response.Redirect("ArticleMasterDetail.aspx?action=add");
-
-        //clearForm();
-        //Panel1.Visible = false;
-        //updHeader.Update();
-        //pnlForm.Visible = true;
-        //pnlSC.Visible = true;
-        //pnlData.Visible = false;
-        //updForm.Update();
-        //upGrid.Update();
+        clearForm();
+        Panel1.Visible = false;
+        updHeader.Update();
+        pnlForm.Visible = true;
+        pnlData.Visible = false;
+        updForm.Update();
+        upGrid.Update();
     }
 
     protected void lbSearch_Click(object sender, EventArgs e)

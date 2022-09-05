@@ -22,17 +22,17 @@
     <body style="background-image:url(Images/banner.jpg);background:fixed">
         <form runat="server">
         <asp:ScriptManager ID="scriptManager" runat="server" />
-            <div class="container">
+            <div class="container" style="max-width:500px;margin-top:100px">
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="login-panel panel panel-default">
                             <div class="panel-heading text-center">
-                                <h3 class="panel-title">Silahkan Login</h3>
+                                <h3 class="panel-title" style="font-weight:bold">CMSystem</h3>
                             </div>
                             <div class="panel-body">
                                 <div class="col-sm-12">
                                     <div class="text-center">
-                                        <img src="../AssetLogin/Images/login.jpg" style="width:100%;max-width:600px"/>
+                                        <img src="../AssetLogin/Images/logo.png" style="width:100%;max-width:300px"/>
                                     </div>
                                 </div>
                                 <div class="col-sm-12">
@@ -43,7 +43,7 @@
                                                     <asp:Label ID="lError" runat="server" Text="" />
                                                 </div>    
                                             </asp:Panel>
-                                            <p style="font-weight:bold;font-size:20px">CMSystem</p>
+                                            <p style="font-weight:bold;font-size:20px;text-align:center" >PT Cahaya Manunggal</p>
                                             <div class="form-group">
                                                 <asp:TextBox runat="server" ID="tbUser" CssClass="form-control" PlaceHolder="Masukan Username"></asp:TextBox>
                                             </div>

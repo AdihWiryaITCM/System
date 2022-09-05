@@ -9,7 +9,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="Body" runat="Server">
     <div class="page-title">
         <div class="title_left">
-            <h3>Barang Keluar</h3>
+            <h3>Outbound Deivery</h3>
         </div>
     </div>
     <div class="x_panel">
@@ -62,8 +62,8 @@
                                 <div class="form-inline">
                                     <asp:TextBox ID="tbFromWH" runat="server" Width="100px" CssClass="form-control text-uppercase" ReadOnly="true" />
                                     <asp:LinkButton ID="lbFromWH" runat="server" Text="" CssClass="alert-link" />
-                                    <asp:ImageButton ID="ibSearchFromWH" runat="server" ToolTip="click to search" ImageUrl="~/images/search.png" OnClick="ibSearchFromWH_Click"/>
-                                    <asp:Button ID="bSearchFromWH" runat="server" style="display:none;" OnClick="bSearchFromWH_Click" />
+                                    <asp:ImageButton ID="ibSearchFromWH" runat="server" ToolTip="click to search" ImageUrl="~/images/search.png" OnClick="ibSearchFromWH_Click" />
+                                    <asp:Button ID="bSearchFromWH" runat="server" Style="display: none;" OnClick="bSearchFromWH_Click" />
                                 </div>
                             </div>
                         </div>
@@ -100,25 +100,28 @@
                         </div>
                     </div>
                 </div>
-                <div class="form-group">
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <div class="col-sm-2">
-                                <asp:Label runat="server">Movement Type</asp:Label>
-                            </div>
-                            <div class="col-sm-10">
-                                <div class="form-inline">
-                                    <asp:Panel ID="pSearchMovementType" runat="server" DefaultButton="bSearchMovementType">
-                                        <asp:TextBox ID="tbMovementType" runat="server" Width="80px" CssClass="form-control text-uppercase" />
-                                        <asp:LinkButton ID="lbMovementType" runat="server" Text="" OnClick="lbMovementType_Click" CssClass="alert-link" />
-                                        <asp:ImageButton ID="ibSearchMovementType" runat="server" ToolTip="click to search" ImageUrl="~/images/search.png" OnClick="ibSearchMovementType_Click" />
-                                        <asp:Button ID="bSearchMovementType" runat="server" Style="display: none;" OnClick="bSearchMovementType_Click" />
-                                    </asp:Panel>
+
+                <asp:Panel ID="pMovementType" runat="server" Visible="false" DefaultButton="bSearchMovementType">
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="col-sm-2">
+                                    <asp:Label runat="server">Movement Type</asp:Label>
+                                </div>
+                                <div class="col-sm-10">
+                                    <div class="form-inline">
+                                        <asp:Panel ID="pSearchMovementType" runat="server" DefaultButton="bSearchMovementType">
+                                            <asp:TextBox ID="tbMovementType" runat="server" Text="Z01" Width="80px" CssClass="form-control text-uppercase" />
+                                            <asp:LinkButton ID="lbMovementType" runat="server" Text="Goods issue for rental order" OnClick="lbMovementType_Click" CssClass="alert-link" />
+                                            <asp:ImageButton ID="ibSearchMovementType" runat="server" Visible="false" ToolTip="click to search" ImageUrl="~/images/search.png" OnClick="ibSearchMovementType_Click" />
+                                            <asp:Button ID="bSearchMovementType" runat="server" Style="display: none;" OnClick="bSearchMovementType_Click" />
+                                        </asp:Panel>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                </asp:Panel>
                 <div class="form-group">
                     <div class="row">
                         <div class="col-sm-12">

@@ -36,7 +36,7 @@
         <div class="col-md-3 left_col">
           <div class="left_col scroll-view">
             <div class="navbar nav_title" style="border: 0;">
-              <a href="Default.aspx" class="site_title"><i class="fa fa-renren"></i> <span>CMSystem</span></a>
+              <a href="Default.aspx" class="site_title"><span>CMSystem</span></a>
             </div>
             <div class="clearfix"></div>
             <div class="profile clearfix">
@@ -52,16 +52,38 @@
               <div class="menu_section">
                 <h3><asp:Label runat="server" ID="lblDept"></asp:Label></h3>
                 <ul class="nav side-menu">
-                  <li><a><i class="fa fa-home"></i> Transaction <span class="fa fa-chevron-down"></span></a>
+                  <li visible="false" id="Master" runat="server"><a>Master <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="../Transaction/PurchaseRequisitionList.aspx">Purchase Requisition</a></li>
-                      <li><a href="../Transaction/PurchaseOrder.aspx">Purchase Order</a></li>
-                      <li><a href="../Transaction/InboundDelivery.aspx">Inbound Delivery</a></li>
-                      <li><a href="../Transaction/RentalQuotation.aspx?">Rental Quotation</a></li>
-                      <li><a href="../Transaction/RentalOrder.aspx?">Rental Order</a></li>
-                      <li><a href="../Transaction/BarangKeluarList.aspx">Outbound Delivery</a></li>
-                      <li><a href="../Transaction/PurchaseInvoice.aspx">Purchase invoice</a></li>
-                      <li><a href="../Transaction/PurchasePaymentList.aspx">Purchase Payment</a></li>
+                      <li visible="false" id="ArticleMaster" runat="server"><a href="../Master/ArticleMaster.aspx">Article Master</a></li>
+                      <li visible="false" id="Customer" runat="server"><a href="../Master/Customer.aspx">Customer</a></li>
+                      <li visible="false" id="CustomerAddress" runat="server"><a href="../Master/CustomerAddress.aspx">Customer Address</a></li>
+                      <li visible="false" id="Vendor" runat="server"><a href="../Master/Vendor.aspx?">Vendor</a></li>
+                    </ul>
+                  </li>
+                  <li visible="false" id="Transaction" runat="server"><a> Transaction <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li visible="false" id="PurchaseRequistiion" runat="server"><a href="../Transaction/PurchaseRequisitionList.aspx">Purchase Requisition</a></li>
+                      <li visible="false" id="PurchcaseOrder" runat="server"><a href="../Transaction/PurchaseOrder.aspx">Purchase Order</a></li>
+                      <li visible="false" id="InboundDelivery" runat="server"><a href="../Transaction/InboundDelivery.aspx">Inbound Delivery</a></li>
+                      <li visible="false" id="RentalQuotation" runat="server"><a href="../Transaction/RentalQuotation.aspx?">Rental Quotation</a></li>
+                      <li visible="false" id="RentalOrder" runat="server"><a href="../Transaction/RentalOrder.aspx?">Rental Order</a></li>
+                      <li visible="false" id="OutboundDelivery" runat="server"><a href="../Transaction/BarangKeluarList.aspx">Outbound Delivery</a></li>
+                      <li visible="false" id="PurchaseInvoice" runat="server"><a href="../Transaction/PurchaseInvoice.aspx">Purchase invoice</a></li>
+                      <li visible="false" id="PurchasePayment" runat="server"><a href="../Transaction/PurchasePaymentList.aspx">Purchase Payment</a></li>
+                      <li visible="false" id="SalesInvoice" runat="server"><a href="../Transaction/SalesInvoiceList.aspx">Sales invoice</a></li>
+                      <li visible="false" id="CustomerReceipt" runat="server"><a href="../Transaction/CustomerReceiptList.aspx">Customer Receipt</a></li>
+                    </ul>
+                  </li>
+                  <li visible="false" id="Report" runat="server" ><a>Report <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li visible="false" id="ArticleSerialNo" runat="server"><a href="../Report/ArticleSerialNo.aspx">Article Serial No</a></li>
+                      <li visible="false" id="PurchaseOrderMonitoring" runat="server"><a href="../Report/PurchaseOrderMonitoring.aspx">Purchase Order Monitoring</a></li>
+                      <li visible="false" id="PurchaseRequisitionMonitoring" runat="server"><a href="../Report/PurchaseRequisitionMonitoring.aspx">Purchase Requistiion Monitoring</a></li>
+                      <li visible="false" id="RentalOrderBillingPlan" runat="server"><a href="../Report/RentalBillingPlan.aspx?">Rental Order Billing Plan</a></li>
+                      <li visible="false" id="RentalOrderMonitoring" runat="server"><a href="../Report/RentalOrderMonitoring.aspx?">Rental Order Monitoring</a></li>
+                      <li visible="false" id="SalesInvoiceMonitoring" runat="server"><a href="../Report/SalesInvoiceMonitoring.aspx">Sales Invoice Monitoring</a></li>
+                      <li visible="false" id="StockCard" runat="server"><a href="../Report/StockCard.aspx">Stock Card</a></li>
+                      <li visible="false" id="PurchaseInvoiceMonitoring" runat="server"><a href="../Report/VendorInvoiceMonitoring.aspx">Purchase Invoice Monitoring</a></li>
                     </ul>
                   </li>
                 </ul>

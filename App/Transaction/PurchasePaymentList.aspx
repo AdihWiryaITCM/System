@@ -62,8 +62,8 @@
                         <ContentTemplate>
                             <asp:GridView ID="grid" runat="server" Width="100%" AutoGenerateColumns="False" 
                                 EmptyDataText="NO DATA" DataKeyNames="PV_NO" BackColor="White"
-                                CssClass="table table-striped table-bordered table-hover"
-                                AllowPaging="true" PageSize="10" PagerSettings-Visible="false" >
+                                CssClass="table table-striped table-bordered table-hover" OnRowDataBound="grid_RowDataBound"
+                                AllowPaging="true" PageSize="10" PagerSettings-Visible="false">
                                 <HeaderStyle BackColor="#2A3F54" Font-Bold="True" ForeColor="White" />
                                 <EmptyDataRowStyle HorizontalAlign="Center" />
                                 <RowStyle BackColor="#F7F6F3" ForeColor="#2A3F54" />
@@ -98,9 +98,12 @@
                                     <asp:BoundField DataField="ADMIN_FEE" HeaderText="Admin Fee" DataFormatString="{0:##,#0.#0}" HeaderStyle-CssClass="text-center">
                                         <ItemStyle Width="10%" HorizontalAlign="Right" />
                                     </asp:BoundField>
-                                    <asp:BoundField DataField="STATUS" HeaderText="Status" HeaderStyle-CssClass="text-center">
-                                        <ItemStyle Width="8%" HorizontalAlign="Center" />
-                                    </asp:BoundField>
+                                    <asp:TemplateField HeaderText="Status" HeaderStyle-CssClass="text-center">
+                                        <ItemStyle HorizontalAlign="Center" Width="140px" VerticalAlign="Top"/>
+                                        <ItemTemplate>
+                                            <asp:Label ID="lblStatus" runat="server" Text='<%# Bind("Status") %>' /><br />
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
                                     <asp:TemplateField>
                                         <ItemStyle HorizontalAlign="Center" Width="30px" VerticalAlign="Top" />
                                         <ItemTemplate>
@@ -113,14 +116,7 @@
                                             <asp:LinkButton ID="lbDelete" runat="server" OnClick="lbDelete_Click"><i class="fa fa-trash" style="font-size:17px"></i></asp:LinkButton>
                                             <asp:Label ID="lblDelete" runat="server" Text="-" />
                                         </ItemTemplate>
-                                    </asp:TemplateField>
-                                    <asp:TemplateField>
-                                        <ItemStyle HorizontalAlign="Center" Width="30px" VerticalAlign="Top" />
-                                        <ItemTemplate>
-                                             <asp:LinkButton ID="lbPrint" runat="server"><i class="fa fa-print" style="font-size:17px"></i></asp:LinkButton>
-                                       </ItemTemplate>
-                                    </asp:TemplateField>
-                                                                
+                                    </asp:TemplateField>        
                                 </Columns>
                             </asp:GridView>
                         </ContentTemplate>

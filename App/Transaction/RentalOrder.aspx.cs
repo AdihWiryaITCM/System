@@ -277,8 +277,8 @@ public partial class Transaction_RentalOrder : System.Web.UI.Page
                 if (Session["RentalOrderMode"].ToString() == "delete")
                 {
                     sql.Length = 0;
-                    sql.Append("DELETE FROM rental_order WHERE trans_no = '" + Session["RentalOrderTransNo"].ToString() + "' ");
                     sql.Append("DELETE FROM rental_order_detail WHERE trans_no = '" + Session["RentalOrderTransNo"].ToString() + "'  ");
+                    sql.Append("DELETE FROM rental_order WHERE trans_no = '" + Session["RentalOrderTransNo"].ToString() + "' ");
 
                     cAdih.executeNonQuery(sql.ToString(), cAdih.getConnStr("Connection").ToString());
                     master.messageBox("Data has been deleted");

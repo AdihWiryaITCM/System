@@ -46,14 +46,70 @@ public partial class Report_StockCard : System.Web.UI.Page
     {
         try
         {
-            queryLoadGrid();
-            cAdih.loadGridView(sql.ToString(), cAdih.getConnStr("Connection"), grid);
-            upGrid.Update();
+            if (cbDetail.Checked)
+            {
+                queryLoadGridDetail();
+                cAdih.loadGridView(sql.ToString(), cAdih.getConnStr("Connection"), gridDetail);
+                grid.Visible = false;
+                gridDetail.Visible = true;
+                upGrid.Update();
+            }
+            else
+            {
+                queryLoadGrid();
+                cAdih.loadGridView(sql.ToString(), cAdih.getConnStr("Connection"), grid);
+                grid.Visible = true;
+                gridDetail.Visible = false;
+                upGrid.Update();
+            }
         }
         catch (Exception ex)
         {
             MasterPage master = (MasterPage)this.Master;
             master.messageBox(ex.Message);
+        }
+    }
+
+    private void queryLoadGridDetail()
+    {
+        sql.Length = 0;
+        sql.Append("SELECT tbl.site_id,isnull(ss.wh_description, vv.vendor_name) as site_name, tbl.posted_date, tbl.document_no, ");
+        sql.Append("ISNULL(s.wh_description, ISNULL(v.vendor_name, ISNULL(c.customer_name, tbl.sourcedest))) AS sourcedest, ");
+        sql.Append("tbl.article_no, a.article_description AS article_desc, u.description AS uom, tbl.qty ");
+        sql.Append("FROM( ");
+        sql.Append("    SELECT astc.id, astc.site_id, astc.document_no, astc.posted_date, ");
+        sql.Append("    ISNULL(od.ship_to, '') AS sourcedest, astc.article_no, astc.base_uom_id, sum(astc.qty) 'qty' ");
+        sql.Append("    FROM article_stock_card astc WITH(READPAST) ");
+        sql.Append("    LEFT JOIN outbound_delivery od WITH(READPAST) ON astc.document_no = od.trans_no ");
+        sql.Append("    WHERE qty < 0 ");
+        sql.Append("    group by astc.id, astc.site_id, astc.document_no, astc.posted_date, ");
+        sql.Append("    od.ship_to, astc.article_no, astc.base_uom_id ");
+        sql.Append("    UNION ");
+        sql.Append("    SELECT astc.id, astc.site_id, astc.document_no, astc.posted_date, ");
+        sql.Append("    ISNULL(id.from_site, '') AS sourcedest, astc.article_no, astc.base_uom_id, sum(astc.qty) 'qty' ");
+        sql.Append("    FROM article_stock_card astc WITH(READPAST) ");
+        sql.Append("    LEFT JOIN( ");
+        sql.Append("        SELECT trans_no, from_site FROM inbound_delivery WITH(READPAST) ");
+        sql.Append("    ) AS id ON astc.document_no = id.trans_no ");
+        sql.Append("    WHERE qty >= 0 ");
+        sql.Append("    group by astc.id, astc.site_id, astc.document_no, astc.posted_date, ");
+        sql.Append("    id.from_site, astc.article_no, astc.base_uom_id ");
+        sql.Append(") AS tbl ");
+        sql.Append("INNER JOIN article a WITH(READPAST) ON tbl.article_no = a.article_no AND a.article_type <> 'ZSER' ");
+        sql.Append("INNER JOIN uom u WITH(READPAST) ON tbl.base_uom_id = u.id ");
+        sql.Append("LEFT JOIN site_wh s WITH(READPAST) ON tbl.sourcedest = s.wh_id ");
+        sql.Append("LEFT JOIN site_wh ss WITH(READPAST) ON tbl.site_id = ss.wh_id ");
+        sql.Append("LEFT JOIN vendor v WITH(READPAST) ON tbl.sourcedest = v.vendor_no ");
+        sql.Append("LEFT JOIN vendor vv WITH(READPAST) ON tbl.site_id = vv.vendor_no ");
+        sql.Append("LEFT JOIN customer c WITH(READPAST) ON tbl.sourcedest = c.customer_no ");
+        sql.Append("WHERE 1 = 1 ");
+        if (tbSiteID.Text != "")
+        {
+            sql.Append("    AND tbl.site_id = '" + tbSiteID.Text + "' ");
+        }
+        if (tbArticleGroup.Text != "")
+        {
+            sql.Append("    AND tbl.article_no = '" + tbArticleGroup.Text + "' ");
         }
     }
 
@@ -141,7 +197,14 @@ public partial class Report_StockCard : System.Web.UI.Page
         {
             MasterPage master = (MasterPage)this.Master;
 
-            queryLoadGrid();
+            if (cbDetail.Checked)
+            {
+                queryLoadGridDetail();
+            }
+            else
+            {
+                queryLoadGrid();
+            }
             Session["export_excel"] = null;
             Session["export_name"] = null;
             Session["export_excel"] = cAdih.getResultDataSet(sql.ToString(), cAdih.getConnStr("Connection"));
@@ -166,26 +229,6 @@ public partial class Report_StockCard : System.Web.UI.Page
         try
         {
             string filter = "";
-
-            if (ddlOrderByArticle.SelectedValue == "article_no" && ddlOrderByAsc.SelectedValue == "asc")
-            {
-                filter += "order by tbl.article_no ";
-            }
-
-            if (ddlOrderByArticle.SelectedValue == "article_desc" && ddlOrderByAsc.SelectedValue == "asc")
-            {
-                filter += "order by tbl.article_description ";
-            }
-
-            if (ddlOrderByArticle.SelectedValue == "article_no" && ddlOrderByAsc.SelectedValue == "desc")
-            {
-                filter += "order by tbl.article_no desc ";
-            }
-
-            if (ddlOrderByArticle.SelectedValue == "article_desc" && ddlOrderByAsc.SelectedValue == "desc")
-            {
-                filter += "order by tbl.article_description desc ";
-            }
 
             return filter;
         }

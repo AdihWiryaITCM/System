@@ -8,7 +8,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="Body" Runat="Server">
     <div class="page-title">
         <div class="title_left">
-            <h3>Barang Keluar</h3>
+            <h3>Outbound Deivery</h3>
         </div>
     </div>
     <div class="x_panel">

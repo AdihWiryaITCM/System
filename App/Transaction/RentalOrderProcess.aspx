@@ -141,21 +141,23 @@
                         </div>
                     </div>
                 </div>
-                <div class="form-group">
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <div class="col-sm-2">
-                                <asp:Label runat="server">Installation By</asp:Label>
-                            </div>
-                            <div class="col-sm-10">
-                                <div class="form-inline">
-                                    <asp:DropDownList ID="ddlInstallationBy" runat="server" CssClass="form-control" AutoPostBack="true" OnSelectedIndexChanged="ddlInstallationBy_SelectedIndexChanged"></asp:DropDownList>
-                                    <asp:DropDownList ID="ddlInstallationBySite" CssClass="form-control" runat="server"></asp:DropDownList>
+                <asp:Panel runat="server" Visible="false">
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="col-sm-2">
+                                    <asp:Label runat="server">Installation By</asp:Label>
+                                </div>
+                                <div class="col-sm-10">
+                                    <div class="form-inline">
+                                        <asp:DropDownList ID="ddlInstallationBy" runat="server" CssClass="form-control" AutoPostBack="true" OnSelectedIndexChanged="ddlInstallationBy_SelectedIndexChanged"></asp:DropDownList>
+                                        <asp:DropDownList ID="ddlInstallationBySite" CssClass="form-control" runat="server"></asp:DropDownList>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                </asp:Panel>
                 <div class="form-group">
                     <div class="row">
                         <div class="col-sm-12">

@@ -150,7 +150,7 @@ public partial class Report_PurchaseOrderMonitoring : Page
             sql.Append("SELECT DISTINCT po.trans_no, po.trans_date, ISNULL(ta.approval_date, 0) AS posted_date, po.purchase_requisition_no, v.vendor_name, po.req_delv_date,  ");
             sql.Append("s.wh_description AS ship_to, po.payment_term, po.currency_id, po.note, ");
             sql.Append("po.created_date, ");
-            sql.Append("isnull(po.amount, 0) as amount, isnull(po.tax, 0) as tax, isnull(po.total_amount, 0) as total_amount, ");
+            sql.Append("isnull(po.amount, 0) as amount, isnull(po.tax, 0) as tax, isnull(po.amount, 0)+isnull(po.tax, 0) as total_amount, ");
             sql.Append("ISNULL(id.trans_no, '') AS id_trans_no, ISNULL(id.posted_date, 0) AS id_posted_date, '0' AS id_qty, (select username from[user] u1 where u1.user_id = po.created_by) as created_by,  ");
             sql.Append("po.created_date, isnull((select username from[user] u2 where u2.user_id = po.posted_by), '') as posted_by, po.posted_date, '0' as amount_detail, '0' as tax_detail, '0' as total_amount_detail ");
             sql.Append("FROM purchase_order po WITH(READPAST) ");

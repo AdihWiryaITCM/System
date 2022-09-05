@@ -1249,13 +1249,13 @@ public partial class Transaction_PurchaseOrderProcess : System.Web.UI.Page
 
             if (po_total_amount > po_approval_proxy)
             {
-                message = "This transaction has not been approved, proxy is still not enough.<br />An notification email has been sent to your Head.";
+                message = "This transaction has not been approved, proxy is still not enough.<br />An please contact to your Head.";
             }
             else
             {
                 if (po_total_amount == 0 && po_approval_proxy == 0)
                 {
-                    message = "This transaction has not been approved, proxy is still not enough.<br />An notification email has been sent to your Head.";
+                    message = "This transaction has not been approved, proxy is still not enough.<br />An please contact to your Head.";
                 }
                 else
                 {

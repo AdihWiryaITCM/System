@@ -19,36 +19,6 @@
                         <div class="row">
                             <div class="col-sm-12">
                                 <div class="col-sm-2">
-                                    <asp:label runat="server">Company</asp:label>
-                                </div>
-                                <div class="col-sm-10">
-                                    <div class="form-inline">
-                                        <asp:TextBox ID="txtCompanyID" runat="server" Width="50px" ReadOnly="true" CssClass="form-control" />
-                                        <asp:LinkButton ID="libCompanyDesc" runat="server" Text="" CssClass="alert-link"/>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <div class="col-sm-2">
-                                    <asp:label runat="server">Site</asp:label>
-                                </div>
-                                <div class="col-sm-10">
-                                    <div class="form-inline">
-                                        <asp:TextBox ID="txtSiteID" runat="server" Width="50px" CssClass="form-control" ReadOnly="true" />
-                                        <asp:LinkButton ID="libSiteName" runat="server" Text="" CssClass="alert-link" />
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <div class="col-sm-2">
                                     <asp:label runat="server">Rent To</asp:label>
                                 </div>
                                 <div class="col-sm-10">

@@ -65,23 +65,15 @@
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="col-sm-2">
-                                <asp:label runat="server">Order By</asp:label>
                             </div>
                             <div class="col-sm-10">
                                 <div class="form-inline">
-                                    <asp:DropDownList ID="ddlOrderByArticle" CssClass="form-control" runat="server">
-                                        <asp:ListItem Text="Article No" Value="article_no" Selected="True" />
-                                        <asp:ListItem Text="Article Description" Value="article_desc"/>
-                                    </asp:DropDownList>
-                                    <asp:DropDownList ID="ddlOrderByAsc" CssClass="form-control" runat="server">
-                                        <asp:ListItem Text="Asc" Value="asc" Selected="True" />
-                                        <asp:ListItem Text="Desc" Value="desc"/>
-                                    </asp:DropDownList>
+                                    <asp:CheckBox ID="cbDetail" runat="server"/>&nbsp;Detail
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                </div>       
                 <asp:UpdatePanel ID="UpdatePanel2" runat="server">
                     <ContentTemplate>
                         <div class="form-group">
@@ -165,6 +157,77 @@
                                         </ItemTemplate>
                                         <ItemStyle HorizontalAlign="Right" VerticalAlign="Top" Width="60px" />
                                     </asp:TemplateField>
+                                </Columns>
+                            </asp:GridView>
+
+                            <asp:GridView ID="gridDetail" runat="server" AllowPaging="false" AutoGenerateColumns="False" Width="100%"
+                            CssClass="table table-striped table-bordered table-hover"  
+                            EmptyDataText="NO DATA" BackColor="White">
+                            <HeaderStyle BackColor="#2A3F54" Font-Bold="True" ForeColor="White" />
+                            <EmptyDataRowStyle HorizontalAlign="Center" />
+                            <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
+                            <AlternatingRowStyle BackColor="White" />
+                            <PagerStyle BorderWidth="1px" BackColor="White" ForeColor="#2A3F54" HorizontalAlign="Center" />
+                            <FooterStyle BackColor="#2A3F54" Font-Bold="True" ForeColor="White" HorizontalAlign="Right" />
+                                <Columns>
+                                    <asp:TemplateField HeaderText="Site ID" HeaderStyle-CssClass="text-center">
+                                        <HeaderStyle HorizontalAlign="Center" />
+                                        <ItemTemplate>
+                                            <asp:Label ID="lSiteID" runat="server" Text='<%# Bind("site_id") %>'/>
+                                        </ItemTemplate>
+                                        <ItemStyle HorizontalAlign="Center" VerticalAlign="Top" Width="80px" />
+                                    </asp:TemplateField>
+                                    <asp:TemplateField HeaderText="Site Name" HeaderStyle-CssClass="text-center">
+                                        <HeaderStyle HorizontalAlign="Center" />
+                                        <ItemTemplate>
+                                            <asp:Label ID="lSiteName" runat="server" Text='<%# Bind("site_name") %>'/>
+                                        </ItemTemplate>
+                                        <ItemStyle HorizontalAlign="Left" VerticalAlign="Top" Width="" />
+                                    </asp:TemplateField>
+                                    <asp:TemplateField HeaderText="Posted Date" HeaderStyle-CssClass="text-center">
+                                        <HeaderStyle HorizontalAlign="Center" />
+                                        <ItemTemplate>
+                                            <asp:Label ID="lPosted_date" runat="server" Text='<%# Bind("posted_date", "{0:dd MMM yyyy}") %>'/>
+                                        </ItemTemplate>
+                                        <ItemStyle HorizontalAlign="Center" VerticalAlign="Top" Width="80px" />
+                                    </asp:TemplateField>
+                                    
+                                    <asp:TemplateField HeaderText="Document No" HeaderStyle-CssClass="text-center">
+                                        <HeaderStyle HorizontalAlign="Center" />
+                                        <ItemTemplate>
+                                            <asp:Label ID="lDocumentNo" runat="server" Text='<%# Bind("document_no") %>'/>
+                                        </ItemTemplate>
+                                        <ItemStyle HorizontalAlign="Left" VerticalAlign="Top" Width="" />
+                                    </asp:TemplateField>
+                                    <asp:TemplateField HeaderText="Source" HeaderStyle-CssClass="text-center">
+                                        <HeaderStyle HorizontalAlign="Center" />
+                                        <ItemTemplate>
+                                            <asp:Label ID="lSource" runat="server" Text='<%# Bind("sourcedest") %>'/>
+                                        </ItemTemplate>
+                                        <ItemStyle HorizontalAlign="Left" VerticalAlign="Top" Width="" />
+                                    </asp:TemplateField>
+                                    <asp:TemplateField HeaderText="Article No" HeaderStyle-CssClass="text-center">
+                                        <HeaderStyle HorizontalAlign="Center" />
+                                        <ItemTemplate>
+                                            <asp:Label ID="lArticleNo" runat="server" Text='<%# Bind("article_no") %>'/>
+                                        </ItemTemplate>
+                                        <ItemStyle HorizontalAlign="Center" VerticalAlign="Top" Width="" />
+                                    </asp:TemplateField>
+                                    <asp:TemplateField HeaderText="UOM" HeaderStyle-CssClass="text-center">
+                                        <HeaderStyle HorizontalAlign="Center" />
+                                        <ItemTemplate>
+                                            <asp:Label ID="lUOM" runat="server" Text='<%# Bind("uom") %>'/>
+                                        </ItemTemplate>
+                                        <ItemStyle HorizontalAlign="Left" VerticalAlign="Top" Width="" />
+                                    </asp:TemplateField>
+                                    <asp:TemplateField HeaderText="Qty" HeaderStyle-CssClass="text-center">
+                                        <HeaderStyle HorizontalAlign="Center" />
+                                        <ItemTemplate>
+                                            <asp:Label ID="lQty" runat="server" Text='<%# Bind("qty", "{0:##,#0.#0}") %>'/>
+                                        </ItemTemplate>
+                                        <ItemStyle HorizontalAlign="Right" VerticalAlign="Top" Width="60px" />
+                                    </asp:TemplateField>
+
                                 </Columns>
                             </asp:GridView>
                         </ContentTemplate>

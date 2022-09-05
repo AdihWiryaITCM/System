@@ -422,6 +422,7 @@ public partial class Transaction_SalesInvoiceDetail : Page
         sql.Append("inner join customer_address ca with(readpast) on ro.sold_to = ca.customer_no and ca.address_type = '01' and ro.bill_to = ca.id ");
         sql.Append("inner join customer_address ca2 with(readpast) on ro.sold_to = ca2.customer_no and ca2.address_type = '02' and ro.ship_to = ca2.id ");
         sql.Append("where   ro.status = '1' ");
+        sql.Append("AND   ro.trans_no = '"+  txtPONo.Text +"' ");
 
         using (conn = new SqlConnection(cAdih.getConnStr("Connection")))
         {

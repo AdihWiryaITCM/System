@@ -198,7 +198,7 @@
                     <asp:UpdatePanel ID="upGrid" runat="server" UpdateMode="Conditional">
                         <ContentTemplate>       
                             <asp:GridView ID="grid" runat="server" AllowPaging="false" AutoGenerateColumns="False" Width="3000px"
-                            CssClass="table table-striped table-bordered table-hover table-responsive"   
+                            CssClass="table table-striped table-bordered table-hover"   
                             EmptyDataText="NO DATA" BackColor="White" OnRowDataBound="grid_RowDataBound" ShowFooter="false">
                             <HeaderStyle BackColor="#2A3F54" Font-Bold="True" ForeColor="White" />
                             <EmptyDataRowStyle HorizontalAlign="Center" />

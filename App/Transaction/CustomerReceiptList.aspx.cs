@@ -240,13 +240,33 @@ public partial class Transaction_RvHeaderList : Page
 
     protected void grid_OnRowDataBound(object sender, GridViewRowEventArgs e)
     {
-        if (e.Row.RowType == DataControlRowType.DataRow)
+        try
         {
-            if (e.Row.Cells[6].Text == "HOLD")
+            GridViewRow Row = e.Row;
+
+            if (e.Row.RowType == DataControlRowType.DataRow)
             {
-                ((ImageButton)e.Row.FindControl("imgPrint")).Visible = false;
-                ((Label)e.Row.FindControl("lblPrint")).Visible = true;
+                Label lblStatus = (Label)Row.FindControl("lblStatus");
+                LinkButton lbDelete = (LinkButton)Row.FindControl("lbDelete");
+                Label lblDelete = (Label)Row.FindControl("lblDelete");
+
+                if (lblStatus.Text == "HOLD")
+                {
+                    lbDelete.Visible = true;
+                    lblDelete.Visible = false;
+                }
+                else
+                {
+                    lbDelete.Visible = false;
+                    lblDelete.Visible = true;
+                }
             }
+            upGrid.Update();
+        }
+        catch (Exception ex)
+        {
+            MasterPage master = (MasterPage)this.Master;
+            master.messageBox(ex.Message);
         }
     }
 }
